@@ -12,9 +12,9 @@ services:
       - 80:80
       - 443:443
     environment:
-      MYSQL_HOST: medicalink-openemr.c58usy2gyhtg.us-east-2.rds.amazonaws.com
+      MYSQL_HOST: medicalink-db.clo8kiei8wzd.us-east-2.rds.amazonaws.com
       MYSQL_USER: medicalink_admin
       MYSQL_PASS: medicalink_pass
-      MYSQL_DATABASE: medicalin_openemr
+      MYSQL_DATABASE: medicalink-db
       OE_USER: admin
       OE_PASS: pass
