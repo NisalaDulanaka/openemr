@@ -15,6 +15,6 @@ services:
       MYSQL_HOST: medicalink-openemr.c58usy2gyhtg.us-east-2.rds.amazonaws.com
       MYSQL_USER: medicalink_admin
       MYSQL_PASS: medicalink_pass
-      MYSQL_DATABASE: medicalink_openemr
+      MYSQL_DATABASE: medicalin_openemr
       OE_USER: admin
       OE_PASS: pass
