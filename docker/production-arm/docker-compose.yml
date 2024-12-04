@@ -25,10 +25,10 @@ services:
     - logvolume01:/var/log
     - sitevolume:/var/www/localhost/htdocs/openemr/sites
     environment:
-      MYSQL_HOST: mysql
-      MYSQL_ROOT_PASS: root
-      MYSQL_USER: openemr
-      MYSQL_PASS: openemr
+      MYSQL_HOST: medicalink-database.c58usy2gyhtg.us-east-2.rds.amazonaws.com
+      MYSQL_ROOT_PASS: medicalink_app_db
+      MYSQL_USER: medicalink_admin
+      MYSQL_PASS: medicalink_admin
       OE_USER: admin
       OE_PASS: pass
     depends_on:

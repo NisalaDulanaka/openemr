@@ -4,36 +4,17 @@
 #   if not provided, then default to openemr, openemr, admin, and pass respectively.
 #
 # NOTE need to change command from mysqld to mariadbd when update to mariadb 11.4
-#
-version: '3.1'
+
 services:
-  mysql:
-    restart: always
-    image: mariadb:10.11
-    command: ['mysqld','--character-set-server=utf8mb4']
-    volumes:
-    - databasevolume:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
   openemr:
-    restart: always
     image: openemr/openemr:7.0.2
     ports:
-    - 80:80
-    - 443:443
-    volumes:
-    - logvolume01:/var/log
-    - sitevolume:/var/www/localhost/htdocs/openemr/sites
+      - 80:80
+      - 443:443
     environment:
-      MYSQL_HOST: mysql
-      MYSQL_ROOT_PASS: root
-      MYSQL_USER: openemr
-      MYSQL_PASS: openemr
+      MYSQL_HOST: medicalink-openemr.c58usy2gyhtg.us-east-2.rds.amazonaws.com
+      MYSQL_USER: medicalink_admin
+      MYSQL_PASS: medicalink_pass
+      MYSQL_DATABASE: medicalink_openemr
       OE_USER: admin
       OE_PASS: pass
-    depends_on:
-    - mysql
-volumes:
-  logvolume01: {}
-  sitevolume: {}
-  databasevolume: {}
