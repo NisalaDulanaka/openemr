@@ -84,4 +84,4 @@ RUN mkdir /swarm-pieces \
 #go
 CMD [ "./openemr.sh" ]
 
-EXPOSE 80 443
+EXPOSE 80 443
