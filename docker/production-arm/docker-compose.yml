@@ -5,7 +5,6 @@
 #
 # NOTE need to change command from mysqld to mariadbd when update to mariadb 11.4
 #
-version: '3.1'
 services:
   mysql:
     restart: always
@@ -14,26 +13,19 @@ services:
     volumes:
     - databasevolume:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: medicalink_pass
   openemr:
     restart: always
     image: openemr/openemr:7.0.2
     ports:
     - 80:80
     - 443:443
-    volumes:
-    - logvolume01:/var/log
-    - sitevolume:/var/www/localhost/htdocs/openemr/sites
+  
     environment:
-      MYSQL_HOST: medicalink-database.c58usy2gyhtg.us-east-2.rds.amazonaws.com
-      MYSQL_ROOT_PASS: medicalink_app_db
-      MYSQL_USER: medicalink_admin
-      MYSQL_PASS: medicalink_admin
+      MYSQL_HOST: medicalink.clo8kiei8wzd.us-east-2.rds.amazonaws.com
+      MYSQL_USER: admin
+      MYSQL_PASS: medicalink_pass
+      MYSQL_DATABASE: medicalink
       OE_USER: admin
       OE_PASS: pass
-    depends_on:
-    - mysql
-volumes:
-  logvolume01: {}
-  sitevolume: {}
-  databasevolume: {}
+
