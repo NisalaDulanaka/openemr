@@ -12,7 +12,7 @@ services:
       - 80:80
       - 443:443
     environment:
-      MYSQL_HOST: medicalink.clo8kiei8wzd.us-east-2.rds.amazonaws.com
+      MYSQL_HOST: medicalinkemr.clo8kiei8wzd.us-east-2.rds.amazonaws.com
       MYSQL_USER: admin
       MYSQL_PASS: Admin123
       MYSQL_DATABASE: medicalinkdb
