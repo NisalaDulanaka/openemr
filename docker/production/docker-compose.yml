@@ -47,7 +47,7 @@ phpmyadmin:
     ports:
     - 8310:80
     environment:
-      PMA_HOSTS: mysql
+      PMA_HOSTS: medicalink-instance-1.clo8kiei8wzd.us-east-2.rds.amazonaws.com
   couchdb:
     restart: always
     image: couchdb
