@@ -5,7 +5,7 @@ services:
       - 80:80
       - 443:443
     environment:
-      MYSQL_HOST: medicalink-instance-1.clo8kiei8wzd.us-east-2.rds.amazonaws.com
+      MYSQL_HOST: 18.217.152.197
       MYSQL_USER: root
       MYSQL_PASS: password
       MYSQL_DATABASE: openemr
@@ -40,34 +40,3 @@ services:
 
 # volumes:
 #   mysql_data:
-
-phpmyadmin:
-    restart: always
-    image: phpmyadmin
-    ports:
-    - 8310:80
-    environment:
-      PMA_HOSTS: medicalink-instance-1.clo8kiei8wzd.us-east-2.rds.amazonaws.com
-  couchdb:
-    restart: always
-    image: couchdb
-    ports:
-    - 5984:5984
-    - 6984:6984
-    volumes:
-    - ../library/couchdb-config-ssl-cert-keys/local.ini:/opt/couchdb/etc/local.ini:rw
-    - ../library/couchdb-config-ssl-cert-keys/easy/ca.pem:/etc/ssl/ca.pem:ro
-    - ../library/couchdb-config-ssl-cert-keys/easy/server-cert.pem:/etc/ssl/server-cert.pem:ro
-    - ../library/couchdb-config-ssl-cert-keys/easy/server-key.pem:/etc/ssl/server-key.pem:ro
-    - couchdbvolume:/opt/couchdb/data
-    environment:
-      COUCHDB_USER: admin
-      COUCHDB_PASSWORD: password
-  openldap:
-    restart: always
-    image: openemr/dev-ldap:easy
-    environment:
-      LDAP_TLS_VERIFY_CLIENT: try
-      LDAP_TLS_CA_CRT_FILENAME: ca.pem
-      LDAP_TLS_CRT_FILENAME: server-cert.pem
-      LDAP_TLS_KEY_FILENAME: server-key.pem
