@@ -11,9 +11,9 @@ services:
       - 80:80
       - 443:443
     environment:
-      MYSQL_HOST: arn:aws:ecs:us-east-2:390403871122:task/medicalink-cluster/84fc56bcae3942418dea5494243679a1
-      MYSQL_USER: admin
-      MYSQL_PASS: Admin123
+      MYSQL_HOST: 18.218.175.122
+      MYSQL_USER: root
+      MYSQL_PASS: password
       MYSQL_DATABASE: openemr
       OE_USER: admin
       OE_PASS: pass
